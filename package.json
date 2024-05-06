@@ -1,0 +1,23 @@
+{
+  "name": "design-patterns-book",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "bun --watch index.js",
+    "ch3": "bun --watch ./modules/ch3-exercise/ticker.js",
+    "ch4": "bun --watch ./modules/ch4-exercise/index.js",
+    "ch5": "bun --watch ./modules/ch5-exercise/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "mkdirp": "^3.0.1",
+    "path": "^0.12.7",
+    "slug": "^9.0.0",
+    "superagent": "^9.0.2"
+  }
+}
