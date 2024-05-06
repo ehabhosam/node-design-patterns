@@ -6,34 +6,32 @@
 // SO IF YOU FIND ANY PLEASE, LET ME KNOW
 
 export default async function mapAsync(iterable, callback, concurrency) {
-  const elements = Array.from(iterable);
-  const results = new Array(elements.length).fill();
-  let remaining = elements.length;
+  return await new Promise(async (resolve, reject) => {
+    const elements = Array.from(iterable);
+    const results = new Array(elements.length).fill();
+    let remaining = elements.length;
 
-  function next() {
-    if (elements.length === 0) return;
-    const element = elements.pop();
-    const index = elements.length;
-    Promise.resolve(callback(element))
-      .then((result) => {
-        remaining--;
-        results[index] = result;
-        next();
-      })
-      .catch((err) => {
-        remaining--;
-        results[index] = err;
-        next();
-      });
-  }
+    function next() {
+      if (elements.length === 0) return;
+      const element = elements.pop();
+      const index = elements.length;
+      Promise.resolve(callback(element))
+        .then((result) => {
+          remaining--;
+          results[index] = result;
+          if (remaining === 0) resolve(results);
+          next();
+        })
+        .catch((err) => {
+          remaining--;
+          results[index] = err;
+          if (remaining === 0) reject(results);
+          next();
+        });
+    }
 
-  for (let i = 0; i < concurrency; i++) {
-    next();
-  }
-
-  while (remaining > 0) {
-    await new Promise((resolve) => setTimeout(resolve, 0)); // Allow event loop to continue
-  }
-
-  return results;
+    for (let i = 0; i < concurrency; i++) {
+      next();
+    }
+  });
 }
