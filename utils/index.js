@@ -32,3 +32,9 @@ export function printFilesTree(node, depth = 0) {
     printFilesTree(child, depth + 1);
   }
 }
+
+export function delay(milliseconds) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, milliseconds);
+  });
+}
