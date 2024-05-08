@@ -41,4 +41,7 @@
 //   console.log("event emitted", ticks, "ticks");
 // });
 
-import "./modules/ch4-exercise/concat-files";
+// import gzipBuffer from "./modules/streams/gzip/buffer";
+// import gzipStream from "./modules/streams/gzip/stream";
+
+// gzipStream("fileA.txt");
