@@ -45,3 +45,4 @@
 // import gzipStream from "./modules/streams/gzip/stream";
 
 // gzipStream("fileA.txt");
+import "./modules/streams/index";
