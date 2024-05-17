@@ -45,4 +45,15 @@
 // import gzipStream from "./modules/streams/gzip/stream";
 
 // gzipStream("fileA.txt");
-import "./modules/streams/index";
+// import "./modules/streams/index";
+
+// Builder design pattern
+import { UrlBuilder } from "./modules/builder/url";
+
+const myurl = new UrlBuilder()
+  .setProtocol("https")
+  .setCredentials("user", "pass")
+  .setHostname("example.com")
+  .build();
+
+console.log(myurl.toString());
