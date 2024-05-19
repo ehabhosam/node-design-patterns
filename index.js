@@ -48,12 +48,23 @@
 // import "./modules/streams/index";
 
 // Builder design pattern
-import { UrlBuilder } from "./modules/builder/url";
+// import { UrlBuilder } from "./modules/builder/url";
 
-const myurl = new UrlBuilder()
-  .setProtocol("https")
-  .setCredentials("user", "pass")
-  .setHostname("example.com")
-  .build();
+// const myurl = new UrlBuilder()
+//   .setProtocol("https")
+//   .setCredentials("user", "pass")
+//   .setHostname("example.com")
+//   .build();
 
-console.log(myurl.toString());
+// console.log(myurl.toString());
+
+// revealling constructor design pattern
+import { ImmutableBuffer } from "./modules/revealing-constructor/immutable-buffer";
+
+const word = "ehab hosam";
+const buffer = new ImmutableBuffer(word.length, (props) => {
+  const { write, swap, fill } = props; // can access modifiers here
+  write(word);
+});
+
+console.log(String.fromCharCode(buffer.readInt8(0)));
