@@ -1,1 +1,1 @@
-this content will be streamed
+First chunkSecond chunkThis is not logged
