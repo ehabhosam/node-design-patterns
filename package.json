@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "design-patterns-book",
   "version": "1.0.0",
   "description": "",
@@ -26,6 +27,7 @@
     "slug": "^9.0.0",
     "sqlite3": "^5.1.7",
     "superagent": "^9.0.2",
+    "zeromq": "^6.0.0-beta.19",
     "zlib": "^1.0.5"
   }
 }
