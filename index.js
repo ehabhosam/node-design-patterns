@@ -2,6 +2,10 @@
 // and runs its content in separate scope
 // require("./modules/custom-require");
 
+const {
+  createAlphabetIterator,
+} = require("./modules/iterator/createAlphabetIterator");
+
 // exports & module.exports
 // const result = require("./modules/_exports");
 // console.log(result.get_var());
@@ -59,12 +63,36 @@
 // console.log(myurl.toString());
 
 // revealling constructor design pattern
-import { ImmutableBuffer } from "./modules/revealing-constructor/immutable-buffer";
+// import { ImmutableBuffer } from "./modules/revealing-constructor/immutable-buffer";
 
-const word = "ehab hosam";
-const buffer = new ImmutableBuffer(word.length, (props) => {
-  const { write, swap, fill } = props; // can access modifiers here
-  write(word);
-});
+// const word = "ehab hosam";
+// const buffer = new ImmutableBuffer(word.length, (props) => {
+//   const { write, swap, fill } = props; // can access modifiers here
+//   write(word);
+// });
 
-console.log(String.fromCharCode(buffer.readInt8(0)));
+// console.log(String.fromCharCode(buffer.readInt8(0)));
+
+// iterator design pattern
+// import { Matrix } from "./modules/iterator/matrix";
+
+// const matrix = new Matrix([
+//   [1, 2, 3],
+//   [4, 5, 6],
+//   [7, 8, 9],
+// ]);
+
+// for (const value of matrix) {
+//   console.log(value);
+// }
+
+// generator function
+// const iterator = createAlphabetIterator();
+// console.log(iterator.next().value);
+// console.log(iterator.next().value);
+// console.log(iterator.next().value);
+// console.log(iterator.next().value);
+
+// for (let letter of createAlphabetIterator()) {
+//   console.log("current letter:", letter);
+// }
