@@ -1,0 +1,4 @@
+"Debug message"
+"Error message"
+"Warn message"
+"Info message"
