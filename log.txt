@@ -1,0 +1,8 @@
+DEBUG: Debug message
+ERROR: Error message
+WARN: Warn message
+INFO: Info message
+DEBUG: Debug message
+ERROR: Error message
+WARN: Warn message
+INFO: Info message

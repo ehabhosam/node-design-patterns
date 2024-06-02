@@ -12,7 +12,8 @@
     "ch5": "bun --watch ./modules/ch5-exercise/index.js",
     "ch6": "bun --watch ./modules/ch6-exercise/index.js",
     "ch7": "bun --watch ./modules/ch7-exercise/index.js",
-    "ch8": "bun --watch ./modules/ch8-exercise/index.js"
+    "ch8": "bun --watch ./modules/ch8-exercise/index.js",
+    "ch9": "bun --watch ./modules/ch9-exercise/index.js"
   },
   "keywords": [],
   "author": "",
