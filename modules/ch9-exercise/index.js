@@ -27,16 +27,44 @@
 // the console or FileLogger class to log to a file. Appreciate the differences
 // between the Template and the Strategy approaches.
 
-import { ConsoleLogger, FileLogger } from "./LoggingConcretes.js";
+// import { ConsoleLogger, FileLogger } from "./LoggingConcretes.js";
 
-const consoleLogger = new ConsoleLogger();
-consoleLogger.debug("Debug message");
-consoleLogger.info("Info message");
-consoleLogger.warn("Warn message");
-consoleLogger.error("Error message");
+// const consoleLogger = new ConsoleLogger();
+// consoleLogger.debug("Debug message");
+// consoleLogger.info("Info message");
+// consoleLogger.warn("Warn message");
+// consoleLogger.error("Error message");
 
-const fileLogger = new FileLogger("template-logs.txt");
-fileLogger.debug("Debug message");
-fileLogger.info("Info message");
-fileLogger.warn("Warn message");
-fileLogger.error("Error message");
+// const fileLogger = new FileLogger("template-logs.txt");
+// fileLogger.debug("Debug message");
+// fileLogger.info("Info message");
+// fileLogger.warn("Warn message");
+// fileLogger.error("Error message");
+
+// Exercise 9.3 Warehouse item: Imagine we are working on a warehouse
+// management program. Our next task is to create a class to model a
+// warehouse item and help track it. Such a WarehouseItem class has a
+// constructor, which accepts an id and the initial state of the item (which can
+// be one of arriving, stored, or delivered). It has three public methods:
+// • store(locationId) moves the item into the stored state and records
+// the locationId where it's stored.
+// • deliver(address) changes the state of the item to delivered, sets the
+// delivery address, and clears the locationId.
+// • describe() returns a string representation of the current state of the
+// item (for example, "Item 5821 is on its way to the warehouse," or
+// "Item 3647 is stored in location 1ZH3," or "Item 3452 was delivered to
+// John Smith, 1st Avenue, New York."
+// The arriving state can be set only when the object is created as it cannot be
+// transitioned to from the other states. An item can't move back to the arriving
+// state once it's stored or delivered, it cannot be moved back to stored once
+// it's delivered, and it cannot be delivered if it's not stored first. Use the State
+// pattern to implement the WarehouseItem class.
+
+import { WarehouseItem } from "./WarehouseItem.js";
+
+const item = new WarehouseItem(1, "arriving");
+console.log(item.describe());
+item.store("1ZH3");
+console.log(item.describe());
+item.deliver("John Smith, 1st Avenue, New York");
+console.log(item.describe());
