@@ -79,17 +79,65 @@
 // to a file. This exercise should highlight the flexibility and universality of
 // the Middleware pattern.
 
-import {
-  LoggerWithMiddleware,
-  serializeMessage,
-  writeToFile,
-} from "./LoggingMiddleware.js";
+// import {
+//   LoggerWithMiddleware,
+//   serializeMessage,
+//   writeToFile,
+// } from "./LoggingMiddleware.js";
 
-const logger = new LoggerWithMiddleware(console);
-logger.use(serializeMessage);
-logger.use((message) => writeToFile(message, "middleware-logs.txt"));
+// const logger = new LoggerWithMiddleware(console);
+// logger.use(serializeMessage);
+// logger.use((message) => writeToFile(message, "middleware-logs.txt"));
 
-logger.debug("Debug message");
-logger.info("Info message");
-logger.warn("Warn message");
-logger.error("Error message");
+// logger.debug("Debug message");
+// logger.info("Info message");
+// logger.warn("Warn message");
+// logger.error("Error message");
+
+// Exercise 9.5 Queues with iterators: Implement an AsyncQueue class similar
+// to one of the TaskQueue classes we defined in Chapter 5, Asynchronous
+// Control Flow Patterns with Promises and Async/Await, but with a slightly
+// different behavior and interface. Such an AsyncQueue class will have a
+// method called enqueue() to append new items to the queue and then expose
+// an @@asyncIterable method, which should provide the ability to process the
+// elements of the queue asynchronously, one at a time (so, with a concurrency
+// of 1). The async iterator returned from AsyncQueue should terminate only
+// after the done() method of AsyncQueue is invoked and only after all items
+// in the queue are consumed. Consider that the @@asyncIterable method
+// could be invoked in more than one place, thus returning an additional
+// async iterator, which would allow you to increase the concurrency with
+// which the queue is consumed.
+
+import { AsyncQueue } from "./AsyncQueue.js";
+
+function wait(ms) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(`done ${ms}`);
+    }, ms);
+  });
+}
+
+function taskCreator(ms) {
+  return async function () {
+    return await wait(ms);
+  };
+}
+
+const queue = new AsyncQueue();
+
+[
+  taskCreator(10),
+  taskCreator(3000),
+  taskCreator(1000),
+  taskCreator(500),
+  taskCreator(3000),
+].forEach((task) => {
+  queue.enqueue(task);
+});
+
+for await (const taskResult of queue) {
+  console.log(taskResult);
+}
+
+queue.enqueue(taskCreator(1000));
