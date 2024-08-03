@@ -14,6 +14,7 @@
     "ch7": "bun --watch ./modules/ch7-exercise/index.js",
     "ch8": "bun --watch ./modules/ch8-exercise/index.js",
     "ch9": "bun --watch ./modules/ch9-exercise/index.js",
+    "ch11": "bun --watch ./modules/ch11-exercise/index.js",
     "subset-sum": "node --watch ./modules/subset-sum/index.js"
   },
   "keywords": [],
