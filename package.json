@@ -14,7 +14,7 @@
     "ch7": "bun --watch ./modules/ch7-exercise/index.js",
     "ch8": "bun --watch ./modules/ch8-exercise/index.js",
     "ch9": "bun --watch ./modules/ch9-exercise/index.js",
-    "ch11": "bun --watch ./modules/ch11-exercise/index.js",
+    "ch11": "node --watch ./modules/ch11-exercise/index.js",
     "subset-sum": "node --watch ./modules/subset-sum/index.js"
   },
   "keywords": [],
@@ -34,6 +34,7 @@
     "sqlite3": "^5.1.7",
     "subleveldown": "^6.0.1",
     "superagent": "^9.0.2",
+    "workerpool": "^9.1.3",
     "zeromq": "^6.0.0-beta.19",
     "zlib": "^1.0.5"
   }
