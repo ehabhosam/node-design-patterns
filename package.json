@@ -16,7 +16,8 @@
     "ch9": "bun --watch ./modules/ch9-exercise/index.js",
     "ch11": "node --watch ./modules/ch11-exercise/index.js",
     "subset-sum": "node --watch ./modules/subset-sum/index.js",
-    "scaling": "node --watch ./modules/scaling/index.js"
+    "scaling": "node --watch ./modules/scaling/index.js",
+    "lb-app": "node --watch ./modules/scaling/dynamic-LB/app.js"
   },
   "keywords": [],
   "author": "",
@@ -24,13 +25,16 @@
   "dependencies": {
     "axios": "^1.7.2",
     "chance": "^1.1.11",
+    "consul": "^1.2.0",
     "csv-parse": "^5.5.5",
     "fs": "^0.0.1-security",
+    "http-proxy": "^1.18.1",
     "level": "^7.0.0",
     "levelup": "^5.1.1",
     "mkdirp": "^3.0.1",
     "nanoid": "^5.0.7",
     "path": "^0.12.7",
+    "portfinder": "^1.0.32",
     "slug": "^9.0.0",
     "sqlite3": "^5.1.7",
     "subleveldown": "^6.0.1",
